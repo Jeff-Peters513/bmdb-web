@@ -12,7 +12,7 @@ import com.bmdb.business.JsonResponse;
 import com.bmdb.db.GenreRepository;
 
 @RestController
-@RequestMapping("/genre")
+@RequestMapping("/genres")
 public class GenreController {
 
 	@Autowired

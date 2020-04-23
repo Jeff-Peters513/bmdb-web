@@ -93,4 +93,18 @@ public class ActorController {
 		return jr;
 	}
 
+	// disclaimer - this method may not follow strict API Style Guide rules
+	// String lastName
+	@GetMapping("/by-actor-lastname")
+	public JsonResponse listBylastName(@RequestParam String lastName) {
+		JsonResponse jr = null;
+		List<Actor> actors = actorRepo.findAllBylastName(lastName);
+		if (actors.size() > 0) {
+			jr = JsonResponse.getInstance(actors);
+		} else {
+			jr = JsonResponse.getInstance("No Actor(s) with entered Last Name: " + lastName + " ");
+		}
+		return jr;
+	}
+
 }

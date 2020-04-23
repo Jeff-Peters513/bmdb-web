@@ -1,9 +1,6 @@
 package com.bmdb.business;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class MovieGenre {
@@ -11,60 +8,61 @@ public class MovieGenre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	//this should really be a MovieGenre
 	
-	private int movieId;
-	private int genreId;
-	
+	@ManyToOne
+	@JoinColumn(name = "MovieID")
+	private Movie movie;
+	@ManyToOne
+	@JoinColumn(name = "GenreID")
+	private Genre genre;
 	
 	public MovieGenre() {
 		super();
 	}
 
-
-	public MovieGenre(int id, int movieId, int genreId) {
+	public MovieGenre(int id, Movie movie, Genre genre) {
 		super();
 		this.id = id;
-		this.movieId = movieId;
-		this.genreId = genreId;
+		this.movie = movie;
+		this.genre = genre;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	public int getMovieId() {
-		return movieId;
+	public Movie getMovie() {
+		return movie;
 	}
 
-
-	public void setMovieId(int movieId) {
-		this.movieId = movieId;
+	public void setMovie(Movie movie) {
+		this.movie = movie;
 	}
 
-
-	public int getGenreId() {
-		return genreId;
+	public Genre getGenre() {
+		return genre;
 	}
 
-
-	public void setGenreId(int genreId) {
-		this.genreId = genreId;
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
-
 
 	@Override
 	public String toString() {
-		return "MovieGenre [id=" + id + ", movieId=" + movieId + ", genreId=" + genreId + "]";
+		return "MovieGenre [id=" + id + ", movie=" + movie + ", genre=" + genre + "]";
 	}
 	
-		
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
