@@ -11,6 +11,7 @@ import com.bmdb.business.Actor;
 import com.bmdb.business.JsonResponse;
 import com.bmdb.db.ActorRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/actors")
 public class ActorController {
