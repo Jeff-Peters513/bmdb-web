@@ -94,7 +94,7 @@ public class CreditController {
 	
 	// disclaimer - this method may not follow strict API Style Guide rules
 	@GetMapping("/by-movie-id/{id}")
-	public JsonResponse listByMovieId(@PathVariable int id) {
+	public JsonResponse getAllActorsForMovie(@PathVariable int id) {
 		JsonResponse jr = null;
 		List<Credit> movieCredits = creditRepo.findAllByMovieId(id);
 		if (movieCredits.size() > 0) {
@@ -106,7 +106,7 @@ public class CreditController {
 	}
 	// disclaimer - this method may not follow strict API Style Guide rules
 	@GetMapping("/by-actor-id/{id}")
-	public JsonResponse listByActorId(@PathVariable int id) {
+	public JsonResponse getAllMoviesForActor(@PathVariable int id) {
 		JsonResponse jr = null;
 		List<Credit> actorCredits = creditRepo.findAllByActorId(id);
 		if (actorCredits.size() > 0) {
@@ -116,4 +116,6 @@ public class CreditController {
 		}
 		return jr;
 	}
+	//getAllMoviesForActor
+
 }
